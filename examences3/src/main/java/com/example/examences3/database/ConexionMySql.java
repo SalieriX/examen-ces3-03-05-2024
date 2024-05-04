@@ -6,12 +6,12 @@ import java.util.*;
 
     public class ConexionMySql {
 
-        private String user;
-        private String password;
-        private int port;
-        private String host;
-        private String nameDatabase;
-        private Connection cnn;
+        private static String user;
+        private static String password;
+        private static int port;
+        private static String host;
+        private static String nameDatabase;
+        private static Connection cnn;
 
         public ConexionMySql(){
             this.user = "root";
@@ -21,16 +21,17 @@ import java.util.*;
             nameDatabase = "courses";
         }
 
-        private void createConexion(){
+        public static Connection getConnection() {
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 cnn = DriverManager.getConnection(
-                        "jdbc:mysql://" +host+":"+port+"/"+nameDatabase, user, password
+                        "jdbc:mysql://" + host + ":" + port + "/" + nameDatabase, user, password
                 );
                 System.out.println("Successful connection");
+                return cnn;
             } catch (ClassNotFoundException | SQLException e) {
                 System.out.println("An error occurred during the connection");
                 throw new RuntimeException(e);
             }
         }
-}
+    }

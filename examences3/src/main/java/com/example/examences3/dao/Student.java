@@ -10,12 +10,12 @@ public class Student {
     private Date createdAt;
     private Date updatedAt;
     private Date deletedAt;
-    private int id_course;
+    private int idcourse;
 
 
     // Constructor
     public Student(int id, String name, String lastname, int age,
-                   Date createdAt, Date updatedAt, Date deletedAt) {
+                   Date createdAt, Date updatedAt, Date deletedAt, int idcourse) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -23,7 +23,11 @@ public class Student {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.deletedAt = deletedAt;
-        this.id_course = id_course;
+        this.idcourse = idcourse;
+    }
+
+    public Student() {
+
     }
 
     // Getter methods
@@ -56,7 +60,7 @@ public class Student {
     }
 
     public int getId_course() {
-        return id_course;
+        return idcourse;
     }
 
     public void setId(int id) {
@@ -88,6 +92,6 @@ public class Student {
     }
 
     public void setId_course(int id_course) {
-        this.id_course = id_course;
+        this.idcourse = id_course;
     }
 }
